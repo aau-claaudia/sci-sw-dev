@@ -17,16 +17,17 @@ done > pyout.dat
 for file in data/*.json
 do
 	basename $file  .json
-done > filename.dat
+done > basename.dat
 #
 #Combining files to single output ready for R script 
-paste -d';' filename.dat pyout.dat > combined_filenamepyout.dat
+paste -d';' basename.dat pyout.dat > filename.dat
 #
-
 echo "Your files have been processed and results printed in filename datafile"
-
-
+#
+#Running the r script to produce distribution plot
+Rscript analyse_and_visualize.r filename.dat
 #
 echo "Your filename data have been plotted"
+#
 echo "Thank you for using the script for creating a distribution plot of unique ID counts"
 
