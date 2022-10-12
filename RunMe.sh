@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#Free to use bash-script for datasorting in project for the PhD course in SC-SW-Dev using python-script and Rscript 
+#Created by Sebastian Bruhn Petersen, email:by07eg@et.aau.dk
+#Date 12-10-2022
+
 touch Datasorting.dat 							#Create text file for datasorting the ID's 
 > Datasorting.dat 							#Clear text file
 
