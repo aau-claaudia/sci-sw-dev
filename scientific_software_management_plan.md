@@ -22,38 +22,38 @@ Project Title: Course Project for PhD Course Tools for Scientific Software Devel
 ## Project contact: Trine Aalborg (traa@bio.aau.dk). Project ends following acceptance of course project and all contact following that point is directed to Thomas Arildsen (tari@its.aau.dk)
 *Email of main researcher and research leader. Should also include name and contact for a person in-charge after the project ends if relevant*
 
-## Related document(s): 
+## Related document(s): All required documents can be found in the github repository 
 
 Are there requirements and policies from funding agency, collaborators or institute when conducting the research? 
 
 # Planning the project
 
-## Purpose
+## Purpose: The software provides a means of producing a distribution plot of the vocabulry used in case proceedings of the European Court of Human Rights. The software combines a python script to extract the vocabularium keywords and subsequently prepares it in a format that can be submitted to an R script that produces a distribution plot of the word count of each recorded keyword ordered by keyword ID.
 *What is the purpose the scientific software? What scientific question are you trying to answer? What scientific methodology will be used?*
 
-## Where will code exist during project?: 
+## Where will code exist during project?: The code is built on a branch of a fork of the aau-claaudia/sci-sw-dev repository and submitted to that repository as a pull-request.  
 *Can collaborators access code? How? Will there be backup?*
 
-## Software development: 
+## Software development: The software is developed ad-hoc and submitted to a public github repository - any reported bug or issue can be submitted to that repo. The software will be submitted as a pull-request to the repository it was developed for, where repo admins will review the code for acceptance. 
 *How will the software be developed? Following a formal guideline or ad-hoc? Will you receive peer-review of code? How will you track bugs and issues? How do you ensure your results are trustworthy?*
 
-## Programming languages:
+## Programming languages: Scripts in the repository are based on python and R, and this code introduces a bash shell script to create a pipeline controlled by a single step script to automate the analysis process from data to final output. The combined code requires a linux terminal running shell commandline and has python and R dependencies (specified in README.md). These dependencies are available as open source code. 
 *Which languages will you use and why? Will you automate using scripts? Will you use Integrated Development Environments? To which extend will your toolchain be available to others and will it be free of cost? Literate programming? Is platform dependencies an issue? Coding style?*
 
-## Methods: 
+## Methods: The method includes counting of unique identifiers and plotting these as line plots. No furter analysis is performed on the data. Beyond the python and R script provided in the aau-claaudia/sci-sw-dev repository, the additional code relys completely on standard shell command line code, including basename and paste commands.
 *Which statistical methods are used? To which extend do you need to develop your own methods? To which extend can you use off-the-shell methods?* 
 
-## Code Documentation: 
+## Code Documentation: All documentation in contained in a single README.md. There is no additional documentation in the single scripts. 
 *How will the code be documented? A single README? Documentation level of individual functions and scripts? Will it be possible and useful to have automatic generation of documentation?*
 
-## Testing: 
+## Testing: The software can be ad-hoc tested on the dataset provided in the /data folder in the repository, but no additional systematic testing is provided. Intermediate results are printed in separate files that can be viewed. 
 *How will the software be tested? Will there be automatic testing? What can be tested? Systematic or ad-hoc testing? Can we test intermediate results and how? Can you compare with similar software?* 
 
-## Validation: 
+## Validation: The code can be validated by running the bash script on the supplied data in the /data folder against the example output in filename.pdf and intermediate result files.
 *To which extend is validation possible? From theory, do we know if some approaches are better/worse under a given metric and can we do the comparison?
 Is it possible to simulate following a specific model where known theoretical bounds must apply? Is it possible to simplify the model (no noise, fewer parameters, etc.) into a model where the expected result is more clear? In general, how do you ensure your results are trustworthy?*
 
-## Code and data: 
+## Code and data: The code is available, pending acceptance of pull-request, in the the aau-claaudia/sci-sw-dev repository, with all necessary scripts in the top folder and data submitted in a /data subfolder. Git version control is used. The supplied data resides in the git repository, but should the code be used for additional data, the user is responsible for data storage and handling. The supplied data is publicly available. The data file naming system must follow the directives specified in the README.md to comply with code scripting.
 *How will code and data be structured in a filesystem? Are data too large to reside in e.g. a version control system? Are data so large it will reside on a different system, e.g. in a database server? Are there political, legal or ethical issues involved? What plan do you have for organization and naming ?*
 
 ## Version control: github version control is used as this is compatible with the repository for code submission and subsequent availability. 
@@ -64,7 +64,7 @@ Is it possible to simulate following a specific model where known theoretical bo
 ##  Will your processing include randomness?: Processing does not include randomness and can be reproduced directly.   
 *Can your results be reproduced? Is it beneficial to save seed? Is it okay to approximately reproduce?*
 
-## Cleaning of data: 
+## Cleaning of data: The .json case files can be used directly once submitted to the /data folder of the repository
 *Is it necessary to pre-process data? Which methods are used? How are pre-processing documented? How do you ensure that the pre-processing is done in a transparent manner?*
 
 ## Multiple steps?:  The data analysis can be performed in a single step by running a bash script, calling all necessary commands for processing. The output, supplied with the correct datafile formats, will plot results directly.
