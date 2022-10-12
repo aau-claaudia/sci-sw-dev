@@ -1,33 +1,40 @@
 # sci-sw-dev
 Repository for projects in the PhD course Tools for Scientific Software Development and Data Science
 
-The repository includes data from the 
-European Court of Human Rights.  
-The case documents are tagged with IDs corresponding to different 
-keywords. The repository includes scripts that can be used for counting 
-vocabulary IDs in each casefile and plot this distribution to allow 
-analysis of vocabulary use. 
+The repository includes data from the European Court of Human Rights. The case documents are tagged with IDs corresponding to different keywords. The repository includes scripts that can be used for counting vocabulary IDs in each casefile and plot this distribution to allow analysis of vocabulary use. 
 
-The repository includes:
-A data folder containing .json files - each filename corresponds to the 
-case reference number. 
-A Python script (print_kpthesarus.py) that can 
-extract the IDs of each case file in the data folder  and print the IDs 
-to standard output.
-An R script that can take a semicolon-separated file with lines in the 
-form
- <casefile basename>;<standard output of IDs>
-an produce a plot of the distribution of ID counts in .pdf format. 
-A bash script (tfssd_script.sh) that 1) loops the python script through 
-the casefiles in the data folder and prints the output, 2) produces a 
-file containing the casefiles' basenames, 3) merges the casefile 
-basenames with the respective output of the python script with 
-semi-colon separation, and 4) inputs the produced semicolon-separated 
-datafile into the R script and executes it. 
+## Install dependencies
+The code requires python 3.9.7 or newer and R software of 3.4.3 or newer with the tidyverse package installed.  
 
-To produce a distribution plot directly from the data, execute the bash 
-script in terminal in the sci-sw-dev repository and view the 
-distribution plot saved in file filename.pdf. 
+## Running the script
+Use this bash script with no parameters required
+Usage: tfssd.sh
+This script needs to remain in the top directory of the sci-sw-dev git repository that you have downloaded. The data files in .json format that you wish to analyse needs to be in the /data folder of the git repository and have the caseno. as title basename. 
+
+Directory structure:
+sci-sw-dev/
+ - data/<caseno>.json
+ - README.md
+ - print_kpthesaurus.py
+ - analyse_and_visualize.r
+ - scientific_software_management_plan.md
+
+Put your query files in .json format in the /data folder
+
+Example run of the script in the top repository folder
+bash tfssd.sh
+
+The tfssd.sh script produces a final output of a distribution plot of 
+vocabulary ID counts for the query files in the /data folder. The script 
+works in 4 steps of 1) looping the supplied python script through the 
+casefiles in the /data folder and prints the output in a pyout.dat file, 
+2) loops through the files in the /data folder, producing a file 
+containing the casefile basenames in basename.dat, 3) merges the files 
+casename.dat and pyout.dat with semicolon-separation to a single file 
+called filename.dat, and 4) inputs the produced semicolon-separated file 
+into the supplied R script and executes it.
+
+The results can be found in this git repository along with the /data folder, including the final output distribution plot in filename.pdf
 
 The data of the bash script commands are saved in the following files:
 1) pyout.dat
