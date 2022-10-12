@@ -11,5 +11,5 @@ a single datafile which meets the Rscript requirements and finally runs the Rscr
 
 ## Repository Usage
 To use the repository, simply run the RunMe.sh bash script from the main folder.
-A PDF file containing the plot of the ID distribution is then generated.  
+A PDF file "Datasorting.pdf" containing the plot of the ID distribution is then generated.  
 

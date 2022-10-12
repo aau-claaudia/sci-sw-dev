@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Free to use bash-script for datasorting in project for the PhD course in SC-SW-Dev using python-script and Rscript 
+#Free to use bash-script according to licens CC BY 4.0 for datasorting in project for the PhD course in SC-SW-Dev using python-script and Rscript 
 #Created by Sebastian Bruhn Petersen, email:by07eg@et.aau.dk
 #Date 12-10-2022
 
