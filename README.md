@@ -12,6 +12,7 @@ Usage: tfssd.sh
 This script needs to remain in the top directory of the sci-sw-dev git repository that you have downloaded. The data files in .json format that you wish to analyse needs to be in the /data folder of the git repository and have the caseno. as title basename. 
 
 Directory structure:
+
 sci-sw-dev/
  - data/<caseno>.json
  - README.md
@@ -21,7 +22,8 @@ sci-sw-dev/
 
 Put your query files in .json format in the /data folder
 
-Example run of the script in the top repository folder
+Example run of the script in the top repository folder:
+
 bash tfssd.sh
 
 The tfssd.sh script produces a final output of a distribution plot of 
@@ -34,7 +36,9 @@ casename.dat and pyout.dat with semicolon-separation to a single file
 called filename.dat, and 4) inputs the produced semicolon-separated file 
 into the supplied R script and executes it.
 
-The results can be found in this git repository along with the /data folder, including the final output distribution plot in filename.pdf
+The results can be found in the top folder of this git repository along 
+with the /data 
+folder, including the final output distribution plot in filename.pdf
 
 The data of the bash script commands are saved in the following files:
 1) pyout.dat
