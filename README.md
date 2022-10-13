@@ -24,7 +24,7 @@ Put your query files in .json format in the /data folder
 
 Example run of the script in the top repository folder:
 
-bash tfssd.sh
+```bash tfssd.sh```
 
 The tfssd.sh script produces a final output of a distribution plot of 
 vocabulary ID counts for the query files in the /data folder. The script 
