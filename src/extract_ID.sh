@@ -1,9 +1,11 @@
 
-# use flag -f to set a filename for the outputs
-while getopts f: flag 
+while getopts n:f: flag 
 do
     case "${flag}" in
-        f) filename=${OPTARG};;
+        n) nCases=${OPTARG};;   # use flag -n to set a maximum
+                                # number of cases to inspect
+        f) filename=${OPTARG};; # use -f to set a filename 
+                                # for the  outputs
     esac
 done
 
@@ -14,7 +16,9 @@ fi
 touch ./out/dat/$filename.dat   # touch new file
 > ./out/dat/$filename.dat       # clear file
 
-for entry in ../data/*.json
+i=0
+
+for entry in ../data/*.json 
     do  
         # get filename and remove extension
         casefile="${entry##*/}"; casefile="${casefile%.*}" 
@@ -24,6 +28,12 @@ for entry in ../data/*.json
 
         # combine this case's filename name with the extracted IDs
         echo "$casefile;$output" >> out/dat/$filename.dat
+
+        ((i++))
+
+        if [[ $i -eq $nCases ]] ; then # reached no. of requested cases
+            break                      # stop iterating
+        fi
     done
 
 # run the R script to produce the plot
