@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+# Author: Ana Sofia Santos Cardoso (assc@hst.aau.dk)
 
 while getopts n:f: flag 
 do
