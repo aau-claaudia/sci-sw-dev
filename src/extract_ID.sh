@@ -1,3 +1,4 @@
+#!/bin/bash
 
 while getopts n:f: flag 
 do
@@ -6,6 +7,10 @@ do
                                 # number of cases to inspect
         f) filename=${OPTARG};; # use -f to set a filename 
                                 # for the  outputs
+        ?) 
+        echo "usage: `basename "$0"` [-f output file] [-n integer] " >&2
+        exit 1
+        ;;  
     esac
 done
 
