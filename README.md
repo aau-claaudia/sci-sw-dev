@@ -35,6 +35,7 @@ filetree
 ## Usage
 
 In terminal
+
 (1) `git clone https://github.com/Stwyb/sci-sw-dev.git`
 
 (2) `cd sci-sw-dev`
