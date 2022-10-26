@@ -4,7 +4,8 @@ Projects of the PhD course Tools for Scientific Software Development and Data Sc
 
 ## Project Description
 
-Data for this project are from the European Court of Human Rights
+Data for this project are from the European Court of Human Rights.(https://hudoc.echr.coe.int/)
+
 The aim of this project was to use a script to automatically extract the IDs of each case and produce a plot of the distribution/count of different IDs in a sorted form.
 
 ### Configuration requirements
