@@ -9,6 +9,7 @@ The aim of this project was to use a script to automatically extract the IDs of 
 
 ### Configuration requirements
 Requires python 3.8 or newer and R software version 4.2 or newer.
+
 You can install R software from https://cloud.r-project.org
 
 Also you should install tidyverse package in R console with command `install.packages("tidyverse")`
@@ -35,7 +36,9 @@ filetree
 
 In terminal
 (1) `git clone https://github.com/Stwyb/sci-sw-dev.git`
+
 (2) `cd sci-sw-dev`
+
 (3) `bash scripts.sh`
 
 The results of the bash script command execution will be saved in a `result.dat` file and a `result.pdf` file.
