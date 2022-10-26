@@ -61,7 +61,7 @@ dataset: https://hudoc.echr.coe.int/
 *According to the file tree, the code will be kept in the top-level folder and the data will be stored in the folder `./data`. Smaller amounts of data do not need to be stored in the database server. The dataset will use public datasets, politics about data, laws or ethical issues will comply with the relevant protocols.*
 
 ## Version control: 
-* Git system will be used to version control.*
+*Git system will be used to version control.*
 
 # Processing data
 
