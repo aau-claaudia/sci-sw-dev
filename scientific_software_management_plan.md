@@ -40,7 +40,7 @@ dataset: https://hudoc.echr.coe.int/
 *The code will be backed up to the master branch. Each collaborator can modify the code by creating a new branch and submit it to the repository as a pull-request.*
 
 ## Software development: 
-*We will use linux systems to develop the software, which we have tested on MacOS and Ubuntu. The software is developed ad-hoc and any bugs or problems can be submitted to the repository via add a new issue in github repository. Of course you can also send an email to the project manager. The code will be reviewed by the repository administrator. *
+*We will use linux systems to develop the software, which we have tested on MacOS and Ubuntu. The software is developed ad-hoc and any bugs or problems can be submitted to the repository via add a new issue in github repository. Of course you can also send an email to the project manager. The code will be reviewed by the repository administrator.*
 
 ## Programming languages:
 *The project is programmed in python and R, and provides automation scripts to get from data to output. Automation scripts can be run directly from the terminal.(of course you need to install python and R in advance)*
