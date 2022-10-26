@@ -25,9 +25,9 @@ filetree
 ├── scientific_software_management_plan.md   # Software Management Plan
 ├── scripts.sh  # Automation scripts for bash
 ├── /data
-│  ├── backend.txt
+│  ├── 001-100002.json
 │  ├── ...
-│  └── frontend.txt
+│  └── 001-64734.json
 ├── result.dat    # semicolon-separated file
 └── result.pdf    # result plot
 
