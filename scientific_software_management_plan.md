@@ -8,84 +8,85 @@ This plan is inspired by the following [Data Management Plan](https://healthscie
 
 # Overview
 
-Project Title:
+Project Title: Neural network based payload recognition for the control of exoskeletons.
 
 ## Main researcher: 
-*Researcher in charge of producing the code*
+Abdullah Tahir, PhD student, ES Dept., AAU
 
 ## Research leader: 
-*Closest researcher leader overseeing the researcher. Could be the main researcher.*
+Zeliane An, Guest researcher, ES Dept., AAU
 
 ## Collaborators: 
-*Other researchers etc. that will have access and use the code*
+Mathias, CS Dept., AAU
 
 ## Project contact: 
-*Email of main researcher and research leader. Should also include name and contact for a person in-charge after the project ends if relevant*
+atah@es.aau.dk
 
 ## Related document(s): 
-
-Are there requirements and policies from funding agency, collaborators or institute when conducting the research? 
+Related documents can only be publicly available once the work is published.
 
 # Planning the project
 
 ## Purpose
-*What is the purpose the scientific software? What scientific question are you trying to answer? What scientific methodology will be used?*
+The sensor-muscle mismatch can happen for the person doing activities of daily life by wearing wearable sensors. This project is aimed to develop a methodology that would guarantee that data processing and classification would become insensitive to this sensor-muscle mismatch. Hence, a more natural way of wearing wearable sensors is the outcome of this project.
 
 ## Where will code exist during project?: 
-*Can collaborators access code? How? Will there be backup?*
+The code is maintained by main researcher in his PC and GitHub repository.
 
 ## Software development: 
-*How will the software be developed? Following a formal guideline or ad-hoc? Will you receive peer-review of code? How will you track bugs and issues? How do you ensure your results are trustworthy?*
+The in-house software is developed which is collection of ad-hoc Python and Matlab scripts. Matlab is used for data acquisition and analysis, while Python is used for AI algorithms. Bugs and issues will be tracked with extensive testing which will also ensure trustworthiness of the software.
 
 ## Programming languages:
-*Which languages will you use and why? Will you automate using scripts? Will you use Integrated Development Environments? To which extend will your toolchain be available to others and will it be free of cost? Literate programming? Is platform dependencies an issue? Coding style?*
+a. Matlab: for data acquisition
+B. Python: AI based classification
 
 ## Methods: 
-*Which statistical methods are used? To which extend do you need to develop your own methods? To which extend can you use off-the-shell methods?* 
+No statistical methods are employed.
 
 ## Code Documentation: 
-*How will the code be documented? A single README? Documentation level of individual functions and scripts? Will it be possible and useful to have automatic generation of documentation?*
+a. A manual will be created showing instructions to operate the software.
+b. Project report will be created showing details of methodology.
+c. Code is properly commented for easy understanding.
 
 ## Testing: 
-*How will the software be tested? Will there be automatic testing? What can be tested? Systematic or ad-hoc testing? Can we test intermediate results and how? Can you compare with similar software?* 
+Software will be testing in real time on human subjects. It can be easy seen if the classification matches the payload a human is lifting.
 
 ## Validation: 
-*To which extend is validation possible? From theory, do we know if some approaches are better/worse under a given metric and can we do the comparison?
-Is it possible to simulate following a specific model where known theoretical bounds must apply? Is it possible to simplify the model (no noise, fewer parameters, etc.) into a model where the expected result is more clear? In general, how do you ensure your results are trustworthy?*
+Validation will be done in computer environment with the test data using accuracy, precision, recall and f-score metrics.
 
 ## Code and data: 
-*How will code and data be structured in a filesystem? Are data too large to reside in e.g. a version control system? Are data so large it will reside on a different system, e.g. in a database server? Are there political, legal or ethical issues involved? What plan do you have for organization and naming ?*
+Main researcher is responsible for maintaining the code on GitHub and local computer. While, the data will be maintained in cloud drive.
 
 ## Version control: 
-*Manually or by a version control system? Which system and why?*
+Git is very popular as version control system, and, people feel handy to work on it. Hence, Git will be used for this purpose.
 
 # Processing data
 
 ##  Will you processing include randomness?: 
-*Can your results be reproduced? Is it beneficial to save seed? Is it okay to approximately reproduce?*
+The input data is augmented by Gaussian noise for robust training.
 
 ## Cleaning of data: 
-*Is it necessary to pre-process data? Which methods are used? How are pre-processing documented? How do you ensure that the pre-processing is done in a transparent manner?*
+The preprocessing of the data is handled in Matlab.
 
 ## Multiple steps?: 
-*Is it necessary to perform several steps to obtain the results? Is it possible to automate via scripting?*
+No, running only the Python file will generate the results.
 
 # Sharing
 ## Will you share your code? 
-*If so, in which format? Binary/bytecode and/or source? Who are the intended users? What are knowledge and skills do potential users have? What level of support do you offer? How do users now the level of support? Contact information? How will you measure	the level of usage? Should users cite a publication?*
+Yes, code will only be publicly available once the research article is published.
 
 ## Which publication channel? 
-*Publisher: home university platform (AAU: e.g. vbn.aau.dk), publisher, or independent organization (e.g. figshare, github,...)? DOI? Link between article and code? Is the policies of digital repository acceptable? Is the longitude? Does the platform accommodate the size of you project? Fees?*
+VBN.
 
 ## Who should have access and who will govern access?
-*Should there be restricted access? Which criteria should be meet for sharing? Who will govern access after completion of project? Does the platform of choice allow for access governance?*
+Anybody can access the codes.
 
 ## Documentation 
-*Is the paper/article sufficient documentation? Should dependencies to other programs and record and versions of these be documented? Is it documented how to produce every figure and statistics reported in the article? Should documentation include how-to-get-started? Example of how run all the program and scripts? Are examples useful?*
+Apart from research article, project report and software manual will also be uploaded on Git.
 
 ## Dataset documentation and publication: 
-*Will you publish any dataset? Is it necessary to document the dataset? Does it make sense to adapt the FAIR principles for your data (benefits/)?:*
+The dataset I have is acquired from custom build hardware. Hardware specifications and dataset will be publicly uploaded once research article is published.
 
 ## Licensing 
-*Should be clearly stated at the top of all relevant files. Right to copy? Right to modify? Right to distribute? Right to usage in proprietary and commercial software?*
+Any person having access to the data, have the right to copy, modify and distribute the code without any permission.
 
