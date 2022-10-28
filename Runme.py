@@ -33,34 +33,45 @@ if __name__ == '__main__':
                     help='filename')
 
     args = parser.parse_args()
-    file_name = args.filename # list all files  
-# file_name = 'C:\\Users\\BC51JO\\sci-sw-dev\\data\\001-64730.json'
+    file_name = args.filename # input 'data' file
+    
+    # get all '.json' file under 'data' folder. 
     if os.path.isdir(file_name):
-        filename = os.listdir(file_name)
+        filename = os.listdir(file_name) 
     elif os.path.isfile(file_name):
         filename = os.path.dirname(__file__) 
     # print(filename)
+    # create matrix to store IDs
     ID_mat = []
     for file in filename:
         path =  file_name + file 
         ID = process(path)
         ID_mat = ID_mat + ID
-    
-    ID_mat = list(filter(None, ID_mat))
-    ID_mat = [int(ID) for ID in ID_mat]
-    # print(ID_mat)
-    result = Counter(ID_mat)
-    # print(result)
-    results = sorted(result.items())
-    x = result.keys()
-    y = result.values()
-    # print(results)
-        # print('IDs:' + () + ',' +  'frequency:' + y)
         
-        
-      
+    
+    ID_mat = list(filter(None, ID_mat)) #delete the ID which is empty
+    ID_mat = [int(ID) for ID in ID_mat] # transform the ID type to int 
+    result = Counter(ID_mat)  # get the frequency of each ID
+    results = sorted(result.items()) # sort the IDs in ascending order
     
     
+    
+    fw = open("./result.txt", 'a')  # create .txt and store the results
+    fw.write("ID: Frequency of  appearance")  
+    fw.write("\n")   
+
+    x = [] # used to plot
+    y = [] # used to plot
+    for i in results:
+        x.append(i[0]) # ID
+        y.append(i[1])  # frequency
+        a = str(i[0]) + ": " + str(i[1]) # results to .txt file. 
+        fw.write(a)  # write into .txt file. 
+        fw.write("\n") 
+    fw.close()
+    
+    
+    # plot the distributions of IDs    
     plt.figure(figsize=(6, 4), dpi=100)
     plt.tight_layout()
     plt.gca().xaxis.set_major_locator(ticker.MultipleLocator(50))  
@@ -74,7 +85,6 @@ if __name__ == '__main__':
     plt.savefig(figname, format='pdf',dpi=900,bbox_inches='tight', pad_inches=0)
     plt.savefig(figname2, format='png',dpi=900,bbox_inches='tight', pad_inches=0)
     plt.show()
-    # plt.rcParams['figure.figsize'] = (8.0, 4.0)
     
 
 

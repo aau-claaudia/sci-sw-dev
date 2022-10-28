@@ -1,0 +1,2 @@
+python Runme.py ./data/
+
