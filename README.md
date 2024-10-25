@@ -21,9 +21,10 @@ depends on python, R and the R package tidyverse.
 ## Usage
 Clone the repository, change to the project directory and run the bash script.
 
-`git clone https://github.com/Stwyb/sci-sw-dev.git
-cd sci-sw-dev
-bash process_and_plot_data.sh
-`
+`git clone https://github.com/Stwyb/sci-sw-dev.git`
 
+Change to project directory.
+`cd sci-sw-dev`
 
+Run the bash script.
+`bash process_and_plot_data.sh`
