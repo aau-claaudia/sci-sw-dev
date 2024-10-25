@@ -8,84 +8,82 @@ This plan is inspired by the following [Data Management Plan](https://healthscie
 
 # Overview
 
-Project Title:
+Project Title: Course project for Tools for Scientific Software Development and Data Science
 
 ## Main researcher: 
-*Researcher in charge of producing the code*
+Ebin Chacko
 
 ## Research leader: 
-*Closest researcher leader overseeing the researcher. Could be the main researcher.*
+Gergely István Barsi
 
 ## Collaborators: 
-*Other researchers etc. that will have access and use the code*
+People with access to the main repository.
 
 ## Project contact: 
-*Email of main researcher and research leader. Should also include name and contact for a person in-charge after the project ends if relevant*
+ebinc@es.aau.dk
 
 ## Related document(s): 
-
-Are there requirements and policies from funding agency, collaborators or institute when conducting the research? 
+Course project discription (https://phd.moodle.aau.dk/mod/resource/view.php?id=23049)
 
 # Planning the project
 
 ## Purpose
-*What is the purpose the scientific software? What scientific question are you trying to answer? What scientific methodology will be used?*
+The purpose of the project is to anyalyse the case ids from the European court of human rights and the plot a distribution of the case id's. There is python script which extracts the case id's from json file and an R script that given the case id's is a specic format, plots the distribution of the case ids. As part of the course project we developed a BASH script pipeline, which uses the python script to extract the case id's, create a dat file, which arranges the case id's and filename in the format required for the R script and then finally exceute the R script with the created file.
 
 ## Where will code exist during project?: 
-*Can collaborators access code? How? Will there be backup?*
+The project files are present in the Ucloud and is commited to github in my personal repository. Finnaly, the files will be merged to the main project repository.
 
 ## Software development: 
-*How will the software be developed? Following a formal guideline or ad-hoc? Will you receive peer-review of code? How will you track bugs and issues? How do you ensure your results are trustworthy?*
+Linux system from Ucloud is used to develop the softwarae in ad-hoc manner. Since the code is pushed to github and is publically available, the peer-review is done there.
 
 ## Programming languages:
-*Which languages will you use and why? Will you automate using scripts? Will you use Integrated Development Environments? To which extend will your toolchain be available to others and will it be free of cost? Literate programming? Is platform dependencies an issue? Coding style?*
+The project uses python, R and bash script. The provided bash script is used to automate the entire process. The pojects depends on python, R and the R package tidyverse.
 
 ## Methods: 
-*Which statistical methods are used? To which extend do you need to develop your own methods? To which extend can you use off-the-shell methods?* 
+The basic statistics methods are used in the R script.
 
 ## Code Documentation: 
-*How will the code be documented? A single README? Documentation level of individual functions and scripts? Will it be possible and useful to have automatic generation of documentation?*
+A README file proides the basic documentation.
 
 ## Testing: 
-*How will the software be tested? Will there be automatic testing? What can be tested? Systematic or ad-hoc testing? Can we test intermediate results and how? Can you compare with similar software?* 
+There is not testing provided.
 
 ## Validation: 
-*To which extend is validation possible? From theory, do we know if some approaches are better/worse under a given metric and can we do the comparison?
-Is it possible to simulate following a specific model where known theoretical bounds must apply? Is it possible to simplify the model (no noise, fewer parameters, etc.) into a model where the expected result is more clear? In general, how do you ensure your results are trustworthy?*
+Manual validaion can be done by comparing the dat file and the resulted the plot.
 
 ## Code and data: 
-*How will code and data be structured in a filesystem? Are data too large to reside in e.g. a version control system? Are data so large it will reside on a different system, e.g. in a database server? Are there political, legal or ethical issues involved? What plan do you have for organization and naming ?*
+The data is publically available data and since the data size is small, the data is stored along with code using version control.
 
 ## Version control: 
-*Manually or by a version control system? Which system and why?*
+Git is used as version control.
 
 # Processing data
 
 ##  Will you processing include randomness?: 
-*Can your results be reproduced? Is it beneficial to save seed? Is it okay to approximately reproduce?*
+Since there is no randomness, the result can be reporduced by re-running the script.
 
 ## Cleaning of data: 
-*Is it necessary to pre-process data? Which methods are used? How are pre-processing documented? How do you ensure that the pre-processing is done in a transparent manner?*
+The provided data is already cleaned. The bash script will read and format 
 
 ## Multiple steps?: 
-*Is it necessary to perform several steps to obtain the results? Is it possible to automate via scripting?*
+Only bash script needs to run, there are no multiple steps are involved.
 
 # Sharing
 ## Will you share your code? 
-*If so, in which format? Binary/bytecode and/or source? Who are the intended users? What are knowledge and skills do potential users have? What level of support do you offer? How do users now the level of support? Contact information? How will you measure	the level of usage? Should users cite a publication?*
+The code is publically available in github and freely available for use. The user needs basic understanding of linux systems and basic bash scripting to run the code.
 
 ## Which publication channel? 
-*Publisher: home university platform (AAU: e.g. vbn.aau.dk), publisher, or independent organization (e.g. figshare, github,...)? DOI? Link between article and code? Is the policies of digital repository acceptable? Is the longitude? Does the platform accommodate the size of you project? Fees?*
+Github
 
 ## Who should have access and who will govern access?
-*Should there be restricted access? Which criteria should be meet for sharing? Who will govern access after completion of project? Does the platform of choice allow for access governance?*
+No restrictions.
 
 ## Documentation 
-*Is the paper/article sufficient documentation? Should dependencies to other programs and record and versions of these be documented? Is it documented how to produce every figure and statistics reported in the article? Should documentation include how-to-get-started? Example of how run all the program and scripts? Are examples useful?*
+Basic documentation via provided README file.
 
 ## Dataset documentation and publication: 
-*Will you publish any dataset? Is it necessary to document the dataset? Does it make sense to adapt the FAIR principles for your data (benefits/)?:*
+Publicaly available dataset.
 
 ## Licensing 
-*Should be clearly stated at the top of all relevant files. Right to copy? Right to modify? Right to distribute? Right to usage in proprietary and commercial software?*
+Open use.
 
