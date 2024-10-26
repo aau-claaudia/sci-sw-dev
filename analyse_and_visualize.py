@@ -2,42 +2,54 @@
 # intall R 4.4.1 so it could work with VS Code - bash but I cant find the solution. I hope this deviation from the task is outweight 
 # by the implementation of KISS and FAIR :)
 
-import sys
 import pandas as pd
 import matplotlib.pyplot as plt
-import numpy as np
+import sys
 
-# Check if there is at least one argument
-if len(sys.argv) < 2:
-    print("You must include a .dat file to process")
-    sys.exit(1)
-else:
+def process_file(filename):
+    # Read the data from the file
+    with open(filename, 'r') as file:
+        data = file.readlines()
+    
+    # Parse the data into a list of dictionaries
+    parsed_data = []
+    for line in data:
+        parts = line.strip().split(';')
+        docid = parts[0]
+        kpts = parts[1:]
+        parsed_data.append([docid] + kpts + [None] * (20 - len(kpts)))
+    
+    # Convert the parsed data to a DataFrame
+    df = pd.DataFrame(parsed_data, columns=['docid'] + [f'kpt{i}' for i in range(1, 21)])
+    
+    # Transform the data using melt and dropna
+    dftidy = df.melt(id_vars=['docid'], value_vars=[f'kpt{i}' for i in range(1, 21)], var_name='kpt', value_name='id').dropna(subset=['id'])
+    
+    # Group by 'id' and summarize the count
+    summary = dftidy.groupby('id').size().reset_index(name='Count')
+    
+    # Sort by 'Count' in descending order and add 'idx' column
+    summary = summary.sort_values(by='Count', ascending=False).reset_index(drop=True)
+    summary['idx'] = summary.index + 1
+    
+    # Generate the plot
+    plt.figure(figsize=(10, 6))
+    plt.plot(summary['idx'], summary['Count'])
+    plt.yscale('log')
+    plt.xlabel('Sequentially ordered')
+    plt.ylabel('Kpthesaurus Count (log-scale)')
+    plt.title('Kpthesaurus Count Plot')
+    plt.grid(True)
+    
+    # Save the plot as a .pdf file
+    plot_filename = filename.split('.')[0] + '.pdf'
+    plt.savefig(plot_filename)
+    print(f"Plot saved as {plot_filename}")
+
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("You must include a .dat file to process")
+        sys.exit(1)
+    
     filename = sys.argv[1]
-
-# Read the data from the file
-df = pd.read_csv(filename, sep=';', header=None, names=['docid'] + [f'kpt{i}' for i in range(1, 21)], engine='python')
-
-# Reshape the dataframe to a long format and drop NaN values
-dftidy = df.melt(id_vars=['docid'], value_vars=[f'kpt{i}' for i in range(1, 21)], var_name='kpt', value_name='id').dropna(subset=['id'])
-
-# Group by 'id' and count occurrences
-count_df = dftidy.groupby('id').size().reset_index(name='Count')
-
-# Sort by 'Count' in descending order and add an index column
-count_df = count_df.sort_values(by='Count', ascending=False).reset_index(drop=True)
-count_df['idx'] = np.arange(1, len(count_df) + 1)
-
-# Plot the data
-plt.figure(figsize=(10, 6))
-plt.plot(count_df['idx'], count_df['Count'], marker='o')
-plt.yscale('log')
-plt.xlabel('Sequentially ordered')
-plt.ylabel('Kpthesaurus Count (log-scale)')
-plt.title('Kpthesaurus Number Occurrences')
-plt.grid(True)
-plt.tight_layout()
-
-# Save the plot to a PDF file
-plot_filename = f"{filename.split('.')[0]}.pdf"
-plt.savefig(plot_filename)
-
+    process_file(filename)
