@@ -3,8 +3,11 @@
 
 # ------ 0. Definitions 
 # ------ 0.1 filename / path definitions 
-filepathVar="XY" # option tbd, go to folder from somewhere
-dataPath="dataTest/"
+dataPath="data/"
+# Define the directory and filename for results
+directory="ResultFolder"
+filenameSummary="dataSummary.json"
+filepath="$directory/$filenameSummary"
 
 # ------ 0.2 variables
 pfield="kpthesaurus" # needed for python file
@@ -12,7 +15,7 @@ pfield="kpthesaurus" # needed for python file
 # ----- 1. read data -------------------------------------------------------------------------------------
 # ----- 1.1 get list of .json file names 
 
-# error: if data folder does not exist or is empty
+# error: if data folder does not exist
 # Check if the folder exists
 if [ ! -d "$dataPath" ]; then
     echo "Folder '$dataPath' does not exist. Aborting script."
@@ -22,7 +25,6 @@ fi
 # Continue with the rest of your script
 echo "Folder '$dataPath' exists. Continuing script..."
 
-
 # create an array with all the filenames in folder data
     # Change to the dataPath directory
 cd $dataPath
@@ -31,21 +33,8 @@ DataFiles=($(ls *.json | sed 's/\.json$//'))
     # Change back to the original directory 
 cd ..
 
-#### debugging snippet >
-# iterate through array using a counter 
-for ((i=0; i<${#DataFiles[@]}; i++)); do 
-    #do something to each element of array
-    echo "${DataFiles[$i]}"
-done
-#### debugging snippet <
-
 # ----- 1.2 prepare for data extraction
-    # Define the directory and filename
-directory="ResultFolder"
-filenameSummary="dataSummary.json"
-filepath="$directory/$filenameSummary"
-
-    # Create the directory if it doesn't exist
+# Create the directory if it doesn't exist
 mkdir -p "$directory"
 
 # Check if the file exists
@@ -73,32 +62,22 @@ else
 fi
 
 echo "File is ready for use."
-echo "$PWD"
 
 # ----- 1.3 data extraction
-echo "Starting Data Extraction"
+echo "Starting Data Extraction - Please be patient: with a larger number of input files this could take a while."
 for ((i=0; i<${#DataFiles[@]}; i++)); do 
-    # echo "$i"
     filename=${DataFiles[$i]} 
-    # echo "$filename"
     # extract case IDs from .json files 
-    #./print_kpthesaurus.py data/001-100865.json
-    #result=$(python3 print_kpthesaurus.py "$filename" "$pfield")
     filenPath="${dataPath}${filename}.json"
     result=$(python3 print_kpthesaurus.py "$filenPath")
     FullResult="${filename};${result}"
-    echo "${FullResult}" >> $filepath
-    ##### todo write results from python script to end of dataSummary.json file 
+    echo "${FullResult}" >> $filepath #write results from python script to end of dataSummary.json file 
 done 
 echo "Finished Data Extraction"
 
-
-
 # ----- 2. Visualisation ---------------------------------------------------------------------------------
-#echo "Starting Visualisation"
+echo "Starting Visualisation"
 # ----- 2.1 Calling .r script
-# Rscript analyse_and_visualize.r $filepath
-# ----- 2.2 
-
-
-#echo "Visualisation Results saved in $filepath"
+# RScript analyse_and_visualize.r $filepath
+python analyse_and_visualize.py "$filepath"
+echo "Visualisation finished and results saved in $directory"
