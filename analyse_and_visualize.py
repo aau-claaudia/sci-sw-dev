@@ -11,19 +11,22 @@ def process_file(filename):
     with open(filename, 'r') as file:
         data = file.readlines()
     
+    # Determine the maximum number of columns in the data
+    max_columns = max(len(line.strip().split(';')) for line in data)
+    
     # Parse the data into a list of dictionaries
     parsed_data = []
     for line in data:
         parts = line.strip().split(';')
         docid = parts[0]
         kpts = parts[1:]
-        parsed_data.append([docid] + kpts + [None] * (20 - len(kpts)))
+        parsed_data.append([docid] + kpts + [None] * (max_columns - len(parts)))
     
     # Convert the parsed data to a DataFrame
-    df = pd.DataFrame(parsed_data, columns=['docid'] + [f'kpt{i}' for i in range(1, 21)])
+    df = pd.DataFrame(parsed_data, columns=['docid'] + [f'kpt{i}' for i in range(1, max_columns)])
     
     # Transform the data using melt and dropna
-    dftidy = df.melt(id_vars=['docid'], value_vars=[f'kpt{i}' for i in range(1, 21)], var_name='kpt', value_name='id').dropna(subset=['id'])
+    dftidy = df.melt(id_vars=['docid'], value_vars=[f'kpt{i}' for i in range(1, max_columns)], var_name='kpt', value_name='id').dropna(subset=['id'])
     
     # Group by 'id' and summarize the count
     summary = dftidy.groupby('id').size().reset_index(name='Count')
