@@ -46,13 +46,13 @@ Then run code:
 - .dat file: A semicolon-separated text file with each line containing a filename and its corresponding case IDs.
 - .pdf file: A visual representation of the distribution of case IDs across all files in /data.
 
-### Prerequisites
-#### Software
+## Prerequisites
+### Software
 - Python 3.x: Required to run print_kpthesaurus.py.
 - R: Required to run analyse_and_visualize.r.
 - Bash script environment (MobaXterm, Git Bash or similar): To execute course_project_main_bash.sh.
 
-### Example workflow
+## Example workflow
 1. Run the bash script with the command ./course_project_main_bash.sh to execute the whole pipeline 
 2. Check the generated .dat file to confirm the case IDs were extracted.
 3. View the .pdf file to analyze the distribution of case IDs.
