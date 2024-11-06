@@ -27,7 +27,7 @@ if (length(args)==0) {
   filename = args[1]
 }
 
-
+install.packages("tidyverse",repos="http://cran.rstudio.com/")
 library(tidyverse)
 
 
