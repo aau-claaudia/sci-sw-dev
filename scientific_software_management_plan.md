@@ -1,91 +1,88 @@
 # Scientific Software Management Plan
 
-A Scientific Software Management Plan (SSMP) is a tool for researchers to help them plan a research project involving software as a part of research work. See this as a dynamic document you can work on an adapt over time as you work on the software. It is not a design document but more a document to clarify your thought and the consequences of different choices. If it helps you in your work you are free to use it in the future. If its just another layer of administrative work then think about why this is so and possible adapt or fully abandon the concept of a SSMP.
-
-The texts in italic is inserted to provide guidance. Some parts may not be valid for your particular research and should then just be filled with "not relevant".
-
-This plan is inspired by the following [Data Management Plan](https://healthsciences.ku.dk/research/responsible-conduct-of-research/SUND_Data_Management_Plan_Template_Final.docx/SUND_Data_Management_Plan_Template_Final.docx) and [Software Management Plan](https://doi.org/10.5281/zenodo.2159713)
-
 # Overview
 
 Project Title:
+Vitrum
 
 ## Main researcher: 
-*Researcher in charge of producing the code*
+Rasmus Christensen
 
 ## Research leader: 
-*Closest researcher leader overseeing the researcher. Could be the main researcher.*
+Morten Mattrup Smedskjær
 
 ## Collaborators: 
-*Other researchers etc. that will have access and use the code*
+N/A
 
 ## Project contact: 
-*Email of main researcher and research leader. Should also include name and contact for a person in-charge after the project ends if relevant*
+rasmusc@bio.aau.dk
+mos@bio.aau.dk
 
 ## Related document(s): 
-
-Are there requirements and policies from funding agency, collaborators or institute when conducting the research? 
+To our knowledge there are no requirements or policies from funding agencies, collaborators or institute for the software.
 
 # Planning the project
 
 ## Purpose
-*What is the purpose the scientific software? What scientific question are you trying to answer? What scientific methodology will be used?*
+Implementation of various analysis methods commonly used for disordered and glassy material atomic structures.
+
 
 ## Where will code exist during project?: 
-*Can collaborators access code? How? Will there be backup?*
+The code is stored in a public GitHub repository (https://github.com/R-Chr/vitrum)
 
 ## Software development: 
-*How will the software be developed? Following a formal guideline or ad-hoc? Will you receive peer-review of code? How will you track bugs and issues? How do you ensure your results are trustworthy?*
+The code is written in Python. The code is developed in an ad-hoc manner, implementing analysis methods as they are needed in various research projects. The code so far only has one developer, Rasmus Christensen, and is therefore not peer-reviewed. Issues and bugs are handled either by contacting Rasmus Christensen personally or through posting on the GitHub issue tracker.
 
 ## Programming languages:
-*Which languages will you use and why? Will you automate using scripts? Will you use Integrated Development Environments? To which extend will your toolchain be available to others and will it be free of cost? Literate programming? Is platform dependencies an issue? Coding style?*
+The package is written in Python 3.x. The code is set up as a Python package, and is therefore easily installable and usable by other Python scripts. The code only uses open-source packages and is therefore free of cost. Most of the code is platform independent, but a subset of functionalities are not available on Windows due to third party package dependencies.
 
 ## Methods: 
-*Which statistical methods are used? To which extend do you need to develop your own methods? To which extend can you use off-the-shell methods?* 
+The code implements a number of different custom methods for analyzing disordered and glassy material structures. The methods are described in the documentation, and are available for use in the package. Most of the methods are implemented using standard Python packages such as NumPy, SciPy, and Pandas. Additionally the code heavily relies on the Atomic Simulation Enviroment to handle atomic structure data.
 
 ## Code Documentation: 
-*How will the code be documented? A single README? Documentation level of individual functions and scripts? Will it be possible and useful to have automatic generation of documentation?*
+Documentation of the package is hosted on [Read The Docs](https://about.readthedocs.com/) using [MkDocs](https://www.mkdocs.org/): https://vitrum.readthedocs.io/en/latest/. 
+Most classes and functions are documented using docstrings, and changes to classes and function are automatically updated when pushed to main, through the use of MkDocstrings. 
+
 
 ## Testing: 
-*How will the software be tested? Will there be automatic testing? What can be tested? Systematic or ad-hoc testing? Can we test intermediate results and how? Can you compare with similar software?* 
+The code does currently not include any testing. A test suite is planned to be added in the future to test the code against a set of test cases. The software will not be compared with similar software, as most analysis methods developed are not available in other software packages.
 
 ## Validation: 
-*To which extend is validation possible? From theory, do we know if some approaches are better/worse under a given metric and can we do the comparison?
-Is it possible to simulate following a specific model where known theoretical bounds must apply? Is it possible to simplify the model (no noise, fewer parameters, etc.) into a model where the expected result is more clear? In general, how do you ensure your results are trustworthy?*
+N/A
 
 ## Code and data: 
-*How will code and data be structured in a filesystem? Are data too large to reside in e.g. a version control system? Are data so large it will reside on a different system, e.g. in a database server? Are there political, legal or ethical issues involved? What plan do you have for organization and naming ?*
+The code is installed as a Python package, and only consists of small python scripts which are not a concern in terms of storage. Data which will be used in the analysis with the package will be provided by the user of the package, and is not part of the code.
 
 ## Version control: 
-*Manually or by a version control system? Which system and why?*
+Version control is done through GitHub, and the code is hosted on GitHub at https://github.com/R-Chr/vitrum. The code will be versioned and tagged, and available for download through GitHub releases when the first stable version is released.
 
 # Processing data
 
 ##  Will you processing include randomness?: 
-*Can your results be reproduced? Is it beneficial to save seed? Is it okay to approximately reproduce?*
+Most of the analysis methods are deterministic, and therefore the results can be reproduced. Some methods however are stochastic, however for these methods the option to set a seed is provided, to ensure reproducibility.
 
 ## Cleaning of data: 
-*Is it necessary to pre-process data? Which methods are used? How are pre-processing documented? How do you ensure that the pre-processing is done in a transparent manner?*
+Data cleaning is not part of the package, and is therfore not applicable to discuss.
 
 ## Multiple steps?: 
-*Is it necessary to perform several steps to obtain the results? Is it possible to automate via scripting?*
+N/A
 
 # Sharing
 ## Will you share your code? 
-*If so, in which format? Binary/bytecode and/or source? Who are the intended users? What are knowledge and skills do potential users have? What level of support do you offer? How do users now the level of support? Contact information? How will you measure	the level of usage? Should users cite a publication?*
+The code is openly shared on GitHub at https://github.com/R-Chr/vitrum. The intended users of the package are computational material science researchers interested in analysis of disordered and glassy material structures. The prerequisite for using the package, is that the user has a basic understanding of Python programming. In the documentation for the code installation instructions are provided on how to install the package. Furthermore a Quickstart guide is provided to help users get started with the package. The package includes contact information for the main developer, Rasmus Christensen, who is the primary contact for questions and issues. The level of support provided will depend on schedule and availability of the developer. The level of usage will not be measured, as the package is intended mostly for internal use within the research group. Currently the package is published in any journal or conference, and is not peer-reviewed, to cite the software please cite the GitHub repository. The software will be referenced in future scientific publications, which can be cited in the future.
 
 ## Which publication channel? 
-*Publisher: home university platform (AAU: e.g. vbn.aau.dk), publisher, or independent organization (e.g. figshare, github,...)? DOI? Link between article and code? Is the policies of digital repository acceptable? Is the longitude? Does the platform accommodate the size of you project? Fees?*
+The code is published through GitHub, and will be available for download through the GitHub website. The platform can accommodate the size of the project, and does not have any fees.
 
 ## Who should have access and who will govern access?
-*Should there be restricted access? Which criteria should be meet for sharing? Who will govern access after completion of project? Does the platform of choice allow for access governance?*
+The code is available to the public through Github. The code will not be restricted in any way, and will be available for download and use by anyone.
 
 ## Documentation 
-*Is the paper/article sufficient documentation? Should dependencies to other programs and record and versions of these be documented? Is it documented how to produce every figure and statistics reported in the article? Should documentation include how-to-get-started? Example of how run all the program and scripts? Are examples useful?*
+All code is publicly available on GitHub, and the documentation is hosted on Read The Docs.
 
 ## Dataset documentation and publication: 
-*Will you publish any dataset? Is it necessary to document the dataset? Does it make sense to adapt the FAIR principles for your data (benefits/)?:*
+N/A
 
 ## Licensing 
-*Should be clearly stated at the top of all relevant files. Right to copy? Right to modify? Right to distribute? Right to usage in proprietary and commercial software?*
+The code is licensed under the MIT license, and is available for free use. The code is not restricted in any way, and can be used by anyone.
 
