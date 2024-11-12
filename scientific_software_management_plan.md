@@ -12,14 +12,13 @@ Project Title: Investigating the distribution of case IDs from files from the Eu
 Emil Korsgaard, PhD Student
 
 ## Research leader: 
-PhD supervisor. 
+N/A
 
 ## Collaborators: 
-Other course participants. 
+Other with interest in the data for ECHR.
 
 ## Project contact: 
 emilk@hst.aau.dk
-
 
 # Planning the project
 
@@ -183,5 +182,4 @@ N/A
 Data is already publicly available.
 
 ## Licensing 
-Rights to do read and modify (through pull requests). 
-
+Rights to do read and modify (through pull requests).
