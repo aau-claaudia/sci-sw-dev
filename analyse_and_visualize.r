@@ -27,9 +27,8 @@ if (length(args)==0) {
   filename = args[1]
 }
 
-
+install.packages("tidyverse", repos='http://cran.rstudio.com/')
 library(tidyverse)
-
 
 # Import data from json file
 df <- read.table(filename, header=FALSE, col.names=c("docid", paste0("kpt",seq_len(20))) , sep=';', fill=TRUE)
