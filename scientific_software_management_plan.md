@@ -8,84 +8,131 @@ This plan is inspired by the following [Data Management Plan](https://healthscie
 
 # Overview
 
-Project Title:
+Project Title: Physics based digital twin (DT) of water electrolyzer
 
 ## Main researcher: 
-*Researcher in charge of producing the code*
+Vicente Olguín Godoy
 
 ## Research leader: 
-*Closest researcher leader overseeing the researcher. Could be the main researcher.*
+Frede Blaabjerg
 
 ## Collaborators: 
-*Other researchers etc. that will have access and use the code*
+Members of CAPeX and others interested in the software and its application.
 
 ## Project contact: 
-*Email of main researcher and research leader. Should also include name and contact for a person in-charge after the project ends if relevant*
+vogo@energy.aau.dk
+
+fbl@energy.aau.dk
 
 ## Related document(s): 
 
-Are there requirements and policies from funding agency, collaborators or institute when conducting the research? 
+Not relevant
 
 # Planning the project
 
 ## Purpose
-*What is the purpose the scientific software? What scientific question are you trying to answer? What scientific methodology will be used?*
+
+To have a multiphyisics, physics-based model running in real time with the physical system, allowing for the exchange of information between the model and the system for state-of-healh monitoring and operational optimization.
+
+Given the detail of the model, it is possible to explore or analyse more in details what is ocurring in the system due to limitations in sensing.
 
 ## Where will code exist during project?: 
-*Can collaborators access code? How? Will there be backup?*
+
+The code will be stored in a github repository and in the project archive.
 
 ## Software development: 
-*How will the software be developed? Following a formal guideline or ad-hoc? Will you receive peer-review of code? How will you track bugs and issues? How do you ensure your results are trustworthy?*
+
+Software as such is not developed, but the model is implemented and executed in OpenModelica. The software and modelling nature allows for a component-based approach, which is standard in the Modelica language.
+
+Before made available, the model bus be properly validated with measurements in the physical system that is being represented. Later on, the model will be made available and other researchers can provide feedback.
 
 ## Programming languages:
-*Which languages will you use and why? Will you automate using scripts? Will you use Integrated Development Environments? To which extend will your toolchain be available to others and will it be free of cost? Literate programming? Is platform dependencies an issue? Coding style?*
+
+The modelling language is Modelica, and the model is implemented in OpenModelica, an open-source software for modelling of cyber-physical systems.
+
+The implementation of the digital twin nature will be with the use of python, and any post-processing can be done in the platform of choice of the researcher.
+
+The goal is to make the whole implementation open-source so that other researchers or industries around the world feel free to use it if it is of their interest.
+
+Due to the use of FMI standard, platform dependencies should not be an issue.
 
 ## Methods: 
-*Which statistical methods are used? To which extend do you need to develop your own methods? To which extend can you use off-the-shell methods?* 
+
+The modelling is implemented by the main researcher, nevertheless, solvers are used off-the-shell. Similarly, when possible and required, components from the Modelica Standard Library (MSL) will be used.
 
 ## Code Documentation: 
-*How will the code be documented? A single README? Documentation level of individual functions and scripts? Will it be possible and useful to have automatic generation of documentation?*
+
+A single README file will be provided for the whole implementation explaining the general use, whereas each level of individual components will have its own documentation.
+
+Automatic documentation is left for the users as part of the post-processing that they require
 
 ## Testing: 
-*How will the software be tested? Will there be automatic testing? What can be tested? Systematic or ad-hoc testing? Can we test intermediate results and how? Can you compare with similar software?* 
+
+No automated testing.
+
+Testing of the model is made by running quick simulations and comparing with real measurements.
 
 ## Validation: 
-*To which extend is validation possible? From theory, do we know if some approaches are better/worse under a given metric and can we do the comparison?
-Is it possible to simulate following a specific model where known theoretical bounds must apply? Is it possible to simplify the model (no noise, fewer parameters, etc.) into a model where the expected result is more clear? In general, how do you ensure your results are trustworthy?*
+
+Validation is performed by comparing simulatio results with real system measurements.
+
+Given the need of a DT to run in (near) real-time, model simplifications will be considered for reduction of computational time. For this, parametric analysis on the model parameteres will be performed.
 
 ## Code and data: 
-*How will code and data be structured in a filesystem? Are data too large to reside in e.g. a version control system? Are data so large it will reside on a different system, e.g. in a database server? Are there political, legal or ethical issues involved? What plan do you have for organization and naming ?*
+
+The code is structured in a nested library, and made available in a github repository and the project archive.
+
+Any data generated will be stored in the project archive.
+
+No political, legal or ethical issues are identified.
 
 ## Version control: 
-*Manually or by a version control system? Which system and why?*
+
+Version control trough git.
 
 # Processing data
 
 ##  Will you processing include randomness?: 
-*Can your results be reproduced? Is it beneficial to save seed? Is it okay to approximately reproduce?*
+
+As the results are based on a physics-based validated model, they are reproducible as long as the physical parameters provided as inputs are the same.
 
 ## Cleaning of data: 
-*Is it necessary to pre-process data? Which methods are used? How are pre-processing documented? How do you ensure that the pre-processing is done in a transparent manner?*
+
+The required pre-processing of data is explained and supported by codes and notebooks which are provided for the post-processing of the modelling results.
 
 ## Multiple steps?: 
-*Is it necessary to perform several steps to obtain the results? Is it possible to automate via scripting?*
+
+Several steps might be required. If it is identified that it is required for the general user, automated scripts are provided.
 
 # Sharing
 ## Will you share your code? 
-*If so, in which format? Binary/bytecode and/or source? Who are the intended users? What are knowledge and skills do potential users have? What level of support do you offer? How do users now the level of support? Contact information? How will you measure	the level of usage? Should users cite a publication?*
+
+All necessary code will be shared and made available.
+
+As there will be some different programming langauges involved, understanding of Modelica, Python and Julia might be required in order to understand the code.
+
+Support is not fully provided, but contact information will be made available so that the users can reach out and the possibility of support will be evaluated according to what is being asked.
+
+Proper citations is required.
 
 ## Which publication channel? 
-*Publisher: home university platform (AAU: e.g. vbn.aau.dk), publisher, or independent organization (e.g. figshare, github,...)? DOI? Link between article and code? Is the policies of digital repository acceptable? Is the longitude? Does the platform accommodate the size of you project? Fees?*
+
+The results and usage cases will be published in the form of scientific articles, but the detail of the codes will not.
+
+Publications will be made available in as many platforms as possible according to the required guidelines.
 
 ## Who should have access and who will govern access?
-*Should there be restricted access? Which criteria should be meet for sharing? Who will govern access after completion of project? Does the platform of choice allow for access governance?*
+
+Access is open.
 
 ## Documentation 
-*Is the paper/article sufficient documentation? Should dependencies to other programs and record and versions of these be documented? Is it documented how to produce every figure and statistics reported in the article? Should documentation include how-to-get-started? Example of how run all the program and scripts? Are examples useful?*
+
+Documentation is provided in the form of exemplary Jupyter notebooks for the analysis of results.
 
 ## Dataset documentation and publication: 
-*Will you publish any dataset? Is it necessary to document the dataset? Does it make sense to adapt the FAIR principles for your data (benefits/)?:*
+
+Example datasets will be made available to explain the structure of the data for post-processing with the corresponding documentation and example of post-processing codes in Julia. All of it following FAIR principles.
 
 ## Licensing 
-*Should be clearly stated at the top of all relevant files. Right to copy? Right to modify? Right to distribute? Right to usage in proprietary and commercial software?*
 
+Following AAU and CAPeX guidelines.
