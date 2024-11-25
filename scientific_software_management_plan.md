@@ -9,83 +9,83 @@ This plan is inspired by the following [Data Management Plan](https://healthscie
 # Overview
 
 Project Title:
+Assignment for the course "Tools for scientific software development and data science"
 
 ## Main researcher: 
-*Researcher in charge of producing the code*
+Nikolaj Klausholt Bak
 
 ## Research leader: 
-*Closest researcher leader overseeing the researcher. Could be the main researcher.*
+Nikolaj Klausholt Bak
 
 ## Collaborators: 
-*Other researchers etc. that will have access and use the code*
+Gergely István Barsi
 
 ## Project contact: 
-*Email of main researcher and research leader. Should also include name and contact for a person in-charge after the project ends if relevant*
+ndb@bio.aau.dk
 
 ## Related document(s): 
+No further related documents.
 
-Are there requirements and policies from funding agency, collaborators or institute when conducting the research? 
 
 # Planning the project
 
 ## Purpose
-*What is the purpose the scientific software? What scientific question are you trying to answer? What scientific methodology will be used?*
+Create three bash scripts that can plot specific ids of .json files.
+
 
 ## Where will code exist during project?: 
-*Can collaborators access code? How? Will there be backup?*
+There will be a backup of the project on the main reasearchers' local system and github. Furthermore, the collaborator will get the final project pushed to that persons github.
 
 ## Software development: 
-*How will the software be developed? Following a formal guideline or ad-hoc? Will you receive peer-review of code? How will you track bugs and issues? How do you ensure your results are trustworthy?*
+I have tested the code myself and I will receive feedback from my collaborator whether the three bash scripts works properly.
 
 ## Programming languages:
-*Which languages will you use and why? Will you automate using scripts? Will you use Integrated Development Environments? To which extend will your toolchain be available to others and will it be free of cost? Literate programming? Is platform dependencies an issue? Coding style?*
+Unix shell is the main feature of the program. But it involves connecting scripts from the R and python language.
 
 ## Methods: 
-*Which statistical methods are used? To which extend do you need to develop your own methods? To which extend can you use off-the-shell methods?* 
+This is basically of-the-shelf method. 
 
 ## Code Documentation: 
-*How will the code be documented? A single README? Documentation level of individual functions and scripts? Will it be possible and useful to have automatic generation of documentation?*
+Because the project is small, there will only be one README file.
 
 ## Testing: 
-*How will the software be tested? Will there be automatic testing? What can be tested? Systematic or ad-hoc testing? Can we test intermediate results and how? Can you compare with similar software?* 
+I divided the bash scripts into two, because then I can test individual steps at a time. This also allows me to divide the task into two steps instead of one.
 
 ## Validation: 
-*To which extend is validation possible? From theory, do we know if some approaches are better/worse under a given metric and can we do the comparison?
-Is it possible to simulate following a specific model where known theoretical bounds must apply? Is it possible to simplify the model (no noise, fewer parameters, etc.) into a model where the expected result is more clear? In general, how do you ensure your results are trustworthy?*
+I validate that the scripts have been correctly run by checking whether the .dat and .pdf files have been generated.
 
 ## Code and data: 
-*How will code and data be structured in a filesystem? Are data too large to reside in e.g. a version control system? Are data so large it will reside on a different system, e.g. in a database server? Are there political, legal or ethical issues involved? What plan do you have for organization and naming ?*
+The data is publicly available from the European Court of Human Rights https://hudoc.echr.coe.int/ and it is small files, so there is no limitation in data storage.
 
 ## Version control: 
-*Manually or by a version control system? Which system and why?*
+I do a manual version control.
 
 # Processing data
 
 ##  Will you processing include randomness?: 
-*Can your results be reproduced? Is it beneficial to save seed? Is it okay to approximately reproduce?*
+No.
 
 ## Cleaning of data: 
-*Is it necessary to pre-process data? Which methods are used? How are pre-processing documented? How do you ensure that the pre-processing is done in a transparent manner?*
+The input should be a .json file from the European Court of Human Rights https://hudoc.echr.coe.int/
 
 ## Multiple steps?: 
-*Is it necessary to perform several steps to obtain the results? Is it possible to automate via scripting?*
+It is possible to individually execute a bash script for json to dat and another bash script for dat to plot (pdf). However, it is also possible to go from json to the plot using the bash script (json-to-plot.sh). 
 
 # Sharing
 ## Will you share your code? 
-*If so, in which format? Binary/bytecode and/or source? Who are the intended users? What are knowledge and skills do potential users have? What level of support do you offer? How do users now the level of support? Contact information? How will you measure	the level of usage? Should users cite a publication?*
+I will be sharing my entire projekt to the collaborator, who have my contact information both in the form of my github, but also my email.
 
 ## Which publication channel? 
-*Publisher: home university platform (AAU: e.g. vbn.aau.dk), publisher, or independent organization (e.g. figshare, github,...)? DOI? Link between article and code? Is the policies of digital repository acceptable? Is the longitude? Does the platform accommodate the size of you project? Fees?*
+Github
 
 ## Who should have access and who will govern access?
-*Should there be restricted access? Which criteria should be meet for sharing? Who will govern access after completion of project? Does the platform of choice allow for access governance?*
+The access is only for the main researcher and the collaborator.
 
 ## Documentation 
-*Is the paper/article sufficient documentation? Should dependencies to other programs and record and versions of these be documented? Is it documented how to produce every figure and statistics reported in the article? Should documentation include how-to-get-started? Example of how run all the program and scripts? Are examples useful?*
+Version controls used etc. will be in a README.file.
 
 ## Dataset documentation and publication: 
-*Will you publish any dataset? Is it necessary to document the dataset? Does it make sense to adapt the FAIR principles for your data (benefits/)?:*
+The data is publicly available from the European Court of Human Rights https://hudoc.echr.coe.int/.
 
 ## Licensing 
-*Should be clearly stated at the top of all relevant files. Right to copy? Right to modify? Right to distribute? Right to usage in proprietary and commercial software?*
-
+This project is only for the main reseacher and the colloborator.
