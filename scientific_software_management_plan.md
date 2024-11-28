@@ -8,84 +8,85 @@ This plan is inspired by the following [Data Management Plan](https://healthscie
 
 # Overview
 
-Project Title:
+Project Title: Course Project: Tools for Scientific Software Development and Data Science
 
 ## Main researcher: 
-*Researcher in charge of producing the code*
+Arun Puthussery Vasudev
 
 ## Research leader: 
-*Closest researcher leader overseeing the researcher. Could be the main researcher.*
+Thomas Arildsen
 
 ## Collaborators: 
-*Other researchers etc. that will have access and use the code*
+collaboration with the public git repo `aau-claaudia/sci-sw-dev`. All students participating in the course can access and use the code
 
 ## Project contact: 
-*Email of main researcher and research leader. Should also include name and contact for a person in-charge after the project ends if relevant*
+Arun Puthussery Vasudev(email: apv@energy.aau.dk)
+The project is owned by Thomas Arildsen(email: tari@its.aau.dk)
 
 ## Related document(s): 
+Project description: https://phd.moodle.aau.dk/pluginfile.php/219161/mod_resource/content/1/ToolsForSciSoftwDev-Day2--2024-09-17--03-CourseProjectInfo.pdf
 
-Are there requirements and policies from funding agency, collaborators or institute when conducting the research? 
+dataset: https://hudoc.echr.coe.int/
 
 # Planning the project
 
 ## Purpose
-*What is the purpose the scientific software? What scientific question are you trying to answer? What scientific methodology will be used?*
+*The purpose of the scientific software is to automatically analyse and graph some of the data of the European Court of Human Rights.*
+*The scientific software is trying to plot of the distribution/count of different IDs in a sorted form.*
+*A python script is used to extract the IDs of each case and print the IDs to standard output. A R scripts is used to produce a plot of the distribution/count of different IDs in a sorted form.*
 
 ## Where will code exist during project?: 
-*Can collaborators access code? How? Will there be backup?*
+*Collaborators can access the program via clone https://github.com/apvenergy/sci-sw-dev .*
+*The code will be backed up to the master branch. Each collaborator can modify the code by creating a new branch and submit it to the repository as a pull-request.*
 
 ## Software development: 
-*How will the software be developed? Following a formal guideline or ad-hoc? Will you receive peer-review of code? How will you track bugs and issues? How do you ensure your results are trustworthy?*
+*The software will be developed and tested on Linux systems (Ubuntu, MacOS compatibility confirmed).* 
+*Bug reports will be managed through GitHub issues, and queries can be directed to the project manager.*
 
 ## Programming languages:
-*Which languages will you use and why? Will you automate using scripts? Will you use Integrated Development Environments? To which extend will your toolchain be available to others and will it be free of cost? Literate programming? Is platform dependencies an issue? Coding style?*
+*Python for data extraction and preprocessing.* 
+*R for visualization and statistical analysis.*
+*Automation scripts can be run directly from the terminal.You need to install python and R in advance*
 
 ## Methods: 
-*Which statistical methods are used? To which extend do you need to develop your own methods? To which extend can you use off-the-shell methods?* 
+*Only basic statistical methods are used on the data, you can rewrite the R program to re-run and re-analyse the data.* 
 
 ## Code Documentation: 
-*How will the code be documented? A single README? Documentation level of individual functions and scripts? Will it be possible and useful to have automatic generation of documentation?*
-
+*A comprehensive `README.md` file will provide usage instructions and setup details.* 
+*In-line comments will describe code functionality.*
 ## Testing: 
-*How will the software be tested? Will there be automatic testing? What can be tested? Systematic or ad-hoc testing? Can we test intermediate results and how? Can you compare with similar software?* 
+*The code can be tested by the data in the folder `./data`, The results can be compared with`result.pdf` and `result.dat` which is uploaded in the git repository
 
 ## Validation: 
-*To which extend is validation possible? From theory, do we know if some approaches are better/worse under a given metric and can we do the comparison?
-Is it possible to simulate following a specific model where known theoretical bounds must apply? Is it possible to simplify the model (no noise, fewer parameters, etc.) into a model where the expected result is more clear? In general, how do you ensure your results are trustworthy?*
-
+*Output verification will involve comparing generated `result.dat` and `result.pdf` with sample files provided.* 
 ## Code and data: 
-*How will code and data be structured in a filesystem? Are data too large to reside in e.g. a version control system? Are data so large it will reside on a different system, e.g. in a database server? Are there political, legal or ethical issues involved? What plan do you have for organization and naming ?*
+*According to the file tree, the code will be kept in the top-level folder and the data will be stored in the folder `./data`. Smaller amounts of data do not need to be stored in the database server. The dataset will use public datasets, politics about data, laws or ethical issues will comply with the relevant protocols.*
 
 ## Version control: 
-*Manually or by a version control system? Which system and why?*
-
+*Git will be used to track progress, with commits logged for major updates.*
+ *Branching policy: master (stable), feature branches for individual tasks.*
 # Processing data
 
 ##  Will you processing include randomness?: 
-*Can your results be reproduced? Is it beneficial to save seed? Is it okay to approximately reproduce?*
-
+*The software will not introduce any randomness.*
 ## Cleaning of data: 
-*Is it necessary to pre-process data? Which methods are used? How are pre-processing documented? How do you ensure that the pre-processing is done in a transparent manner?*
-
+*Input JSON files will be read and parsed without additional preprocessing.*
 ## Multiple steps?: 
-*Is it necessary to perform several steps to obtain the results? Is it possible to automate via scripting?*
-
+*Single execution of the Python and R scripts is sufficient to produce results. This can be done using the bash script*
 # Sharing
 ## Will you share your code? 
-*If so, in which format? Binary/bytecode and/or source? Who are the intended users? What are knowledge and skills do potential users have? What level of support do you offer? How do users now the level of support? Contact information? How will you measure	the level of usage? Should users cite a publication?*
-
+*Source code will be published under an open-source license on GitHub.*
+ *The repository will include usage guidelines in the `README.md`.*
 ## Which publication channel? 
-*Publisher: home university platform (AAU: e.g. vbn.aau.dk), publisher, or independent organization (e.g. figshare, github,...)? DOI? Link between article and code? Is the policies of digital repository acceptable? Is the longitude? Does the platform accommodate the size of you project? Fees?*
+*The project will be published on GitHub.*
 
 ## Who should have access and who will govern access?
-*Should there be restricted access? Which criteria should be meet for sharing? Who will govern access after completion of project? Does the platform of choice allow for access governance?*
-
+*The project is publicly accessible, but use of the dataset is subject to the relevant protocols. Once the project is completed, access is managed by the administrator. Github allows access to the administration.*
 ## Documentation 
-*Is the paper/article sufficient documentation? Should dependencies to other programs and record and versions of these be documented? Is it documented how to produce every figure and statistics reported in the article? Should documentation include how-to-get-started? Example of how run all the program and scripts? Are examples useful?*
+*`README.md` contain enough information, including dependencies on other programs and versions, and also documents how to run programs and scripts.*
 
 ## Dataset documentation and publication: 
-*Will you publish any dataset? Is it necessary to document the dataset? Does it make sense to adapt the FAIR principles for your data (benefits/)?:*
+*No further datasets will be published.*
 
 ## Licensing 
-*Should be clearly stated at the top of all relevant files. Right to copy? Right to modify? Right to distribute? Right to usage in proprietary and commercial software?*
-
+*This project is open source.*
