@@ -9,7 +9,7 @@ def process(filename, pfield='kpthesaurus'):
 
 def main():
     data_folder = 'data'
-    output_file = 'output.txt'
+    output_file = 'data.dat'
     
     # List all .json files in the data folder
     json_files = [f for f in os.listdir(data_folder) if f.endswith('.json')]
