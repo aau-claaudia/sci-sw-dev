@@ -1,91 +1,86 @@
-# Scientific Software Management Plan
-
+Scientific Software Management Plan
 A Scientific Software Management Plan (SSMP) is a tool for researchers to help them plan a research project involving software as a part of research work. See this as a dynamic document you can work on an adapt over time as you work on the software. It is not a design document but more a document to clarify your thought and the consequences of different choices. If it helps you in your work you are free to use it in the future. If its just another layer of administrative work then think about why this is so and possible adapt or fully abandon the concept of a SSMP.
 
 The texts in italic is inserted to provide guidance. Some parts may not be valid for your particular research and should then just be filled with "not relevant".
 
-This plan is inspired by the following [Data Management Plan](https://healthsciences.ku.dk/research/responsible-conduct-of-research/SUND_Data_Management_Plan_Template_Final.docx/SUND_Data_Management_Plan_Template_Final.docx) and [Software Management Plan](https://doi.org/10.5281/zenodo.2159713)
+This plan is inspired by the following Data Management Plan and Software Management Plan
 
-# Overview
+Overview
+Project Title: Modelling the effect of electrothermal balanced operation on product formation in SOECs through microkinetics
 
-Project Title:
+Main researcher:
+Ifrah Akhtar
 
-## Main researcher: 
-*Researcher in charge of producing the code*
+Research leader:
+Soren Jensen
 
-## Research leader: 
-*Closest researcher leader overseeing the researcher. Could be the main researcher.*
+Collaborators:
+CAPeX, DTU, Dynelectro
 
-## Collaborators: 
-*Other researchers etc. that will have access and use the code*
+Project contact:
+ifak@energy.aau.dk
 
-## Project contact: 
-*Email of main researcher and research leader. Should also include name and contact for a person in-charge after the project ends if relevant*
+Related document(s):
+N/A
 
-## Related document(s): 
+Planning the project
+Purpose
+The scientific software being developed is intended to model the kinetic behavior of water and related reactions in a Solid Oxide Electrolysis Cell (SOEC) system. The main research theme is how do various kinetic factors and reactions affect the efficiency and performance of SOECs under different operating conditions? The software will aim to simulate and predict the behavior of various species involved in the reactions and provide insights into reaction rates, concentration profiles, and temperature effects.
+We will use a combination of theoretical and computational modeling techniques, relying on differential equations (e.g., rate equations) to represent chemical reactions. The kinetic model will be implemented using numerical methods such as the Runge-Kutta method or implicit solvers (e.g., solve_ivp in Python) to simulate the time evolution of species concentrations.
 
-Are there requirements and policies from funding agency, collaborators or institute when conducting the research? 
 
-# Planning the project
+Where will code exist during project?:
+The code will be stored in a Git repository (e.g., GitHub or GitLab) to facilitate version control and collaborative work (if applicable). Regular backups will be made through the platform’s backup mechanisms or using local backup systems. Collaborators will have access to the code via private repository links and will contribute via pull requests.
 
-## Purpose
-*What is the purpose the scientific software? What scientific question are you trying to answer? What scientific methodology will be used?*
+Software development:
+The software will follow an ad-hoc development approach initially but will evolve into a more formal system as the complexity of the model increases. The code will undergo peer review (either informal within the research team or through external collaboration). Issue tracking will be managed through GitHub Issues or a similar tool to track bugs, feature requests, and improvements. We will ensure the trustworthiness of the results through extensive testing, validation, and comparison with known theoretical models and experimental data where possible.
 
-## Where will code exist during project?: 
-*Can collaborators access code? How? Will there be backup?*
+Programming languages:
+Primary language used is Python, due to its strong support for scientific computing (with libraries such as NumPy, SciPy, matplotlib, and pandas).The code will include scripts to automate the running of simulations with varying parameters and initial conditions. PyCharm or VSCode will be used as the integrated development environment (IDE) for ease of coding and debugging. The code will be cross-platform compatible (Windows, Linux, macOS) using Python’s virtual environments to manage dependencies. The code will be available as open-source, and the software dependencies (including Python packages) will be clearly documented. the coding style will be Python's PEP 8.
 
-## Software development: 
-*How will the software be developed? Following a formal guideline or ad-hoc? Will you receive peer-review of code? How will you track bugs and issues? How do you ensure your results are trustworthy?*
+Methods:
+The primary methods used are kinetic modeling and numerical simulation. Statistical methods for error analysis (e.g., confidence intervals) will also be employed. Most of the models will be based on existing literature, but custom rate equations will be derived for specific reactions. Off-the-shelf methods from SciPy and other Python libraries will be heavily used.
 
-## Programming languages:
-*Which languages will you use and why? Will you automate using scripts? Will you use Integrated Development Environments? To which extend will your toolchain be available to others and will it be free of cost? Literate programming? Is platform dependencies an issue? Coding style?*
+Code Documentation:
+The software will be documented with a README file to describe the project, installation instructions, and usage examples. Inline documentation for each function and class, explaining their purpose, inputs, outputs, and algorithms used. Automatic documentation generation using tools like Sphinx or pdoc to generate HTML documentation from docstrings.
 
-## Methods: 
-*Which statistical methods are used? To which extend do you need to develop your own methods? To which extend can you use off-the-shell methods?* 
+Testing:
+The software will be systematically tested with unit tests for individual functions and integration tests for the full system. The testing will include unit tests using unittest or pytest to test small components of the model.
+Ad-hoc testing for edge cases and experimental setups. Validation tests will be performed by comparing the outputs to theoretical expectations or experimental data from literature.
 
-## Code Documentation: 
-*How will the code be documented? A single README? Documentation level of individual functions and scripts? Will it be possible and useful to have automatic generation of documentation?*
+Validation:
+Validation will include comparison with known models or experimental data to ensure accuracy. Simplification of the model to check for theoretical bounds. Simulating simplified cases where theoretical results are known, ensuring that the results match expected trends.
 
-## Testing: 
-*How will the software be tested? Will there be automatic testing? What can be tested? Systematic or ad-hoc testing? Can we test intermediate results and how? Can you compare with similar software?* 
+Code and data:
+The code will be organized in a directory structure that separates core functionality (e.g., kinetics, simulation, plotting) from documentation and test files. Data will be stored in a separate directory or external database (e.g., SQLite for smaller datasets, or PostgreSQL for larger data). Data will be version-controlled with clear metadata for each dataset.
 
-## Validation: 
-*To which extend is validation possible? From theory, do we know if some approaches are better/worse under a given metric and can we do the comparison?
-Is it possible to simulate following a specific model where known theoretical bounds must apply? Is it possible to simplify the model (no noise, fewer parameters, etc.) into a model where the expected result is more clear? In general, how do you ensure your results are trustworthy?*
+Version control:
+The code will be managed using Git with a private repository on GitHub or GitLab. The reasons for choosing Git are its widespread adoption, distributed nature, and ability to integrate with CI/CD pipelines.
 
-## Code and data: 
-*How will code and data be structured in a filesystem? Are data too large to reside in e.g. a version control system? Are data so large it will reside on a different system, e.g. in a database server? Are there political, legal or ethical issues involved? What plan do you have for organization and naming ?*
+Processing data
+The simulations may involve stochastic processes (e.g., Monte Carlo methods) for uncertainty quantification. In this case, the random seed will be saved and used for reproducibility.
 
-## Version control: 
-*Manually or by a version control system? Which system and why?*
+Cleaning of data:
+Pre-processing will involve cleaning and formatting experimental data before fitting it into the model. Methods for cleaning will include removing outliers, normalizing data where necessary.
+The cleaning process will be documented, and the code for cleaning will be made available for reproducibility.
 
-# Processing data
+Multiple steps?:
+The model will involve multiple steps (e.g., defining rate equations, solving the system of ODEs, and post-processing results). Automation through scripts will ensure reproducibility.
 
-##  Will you processing include randomness?: 
-*Can your results be reproduced? Is it beneficial to save seed? Is it okay to approximately reproduce?*
+Sharing
+The code will be shared on a public repository (e.g., GitHub), where users will be able to clone the repository and contribute, use the software as-is or modify it. Intended users can include researchers and engineers in the field of electrochemical modeling, particularly those working on SOECs. A little support will be provided (via email or GitHub issues). Users are expected to have basic knowledge of Python and SOECs. Users will be encouraged to cite the corresponding publication
 
-## Cleaning of data: 
-*Is it necessary to pre-process data? Which methods are used? How are pre-processing documented? How do you ensure that the pre-processing is done in a transparent manner?*
+Which publication channel?
+The code will be published on GitHub with a DOI linked to the publication (if applicable). If the publication goes through an open-access platform like AAU’s VBN repository, a DOI will be generated.
 
-## Multiple steps?: 
-*Is it necessary to perform several steps to obtain the results? Is it possible to automate via scripting?*
+Who should have access and who will govern access?
+Access to the repository will initially be public for transparency. After the project is complete, access will remain open unless restrictions are required. Governance will remain with the project lead (Ifrah Akhtar) and will involve regular code reviews
 
-# Sharing
-## Will you share your code? 
-*If so, in which format? Binary/bytecode and/or source? Who are the intended users? What are knowledge and skills do potential users have? What level of support do you offer? How do users now the level of support? Contact information? How will you measure	the level of usage? Should users cite a publication?*
+Documentation
+The article will serve as the primary documentation of the model's methodology and results. The software documentation (e.g., README, function docstrings) will provide additional context. Dependencies on external programs and packages will be clearly noted.
 
-## Which publication channel? 
-*Publisher: home university platform (AAU: e.g. vbn.aau.dk), publisher, or independent organization (e.g. figshare, github,...)? DOI? Link between article and code? Is the policies of digital repository acceptable? Is the longitude? Does the platform accommodate the size of you project? Fees?*
+Dataset documentation and publication:
+If datasets are collected or generated FAIR principles will be followed to ensure Findability, Accessibility, Interoperability, and Reusability. Dataset documentation will include metadata and descriptions of experimental conditions.
 
-## Who should have access and who will govern access?
-*Should there be restricted access? Which criteria should be meet for sharing? Who will govern access after completion of project? Does the platform of choice allow for access governance?*
-
-## Documentation 
-*Is the paper/article sufficient documentation? Should dependencies to other programs and record and versions of these be documented? Is it documented how to produce every figure and statistics reported in the article? Should documentation include how-to-get-started? Example of how run all the program and scripts? Are examples useful?*
-
-## Dataset documentation and publication: 
-*Will you publish any dataset? Is it necessary to document the dataset? Does it make sense to adapt the FAIR principles for your data (benefits/)?:*
-
-## Licensing 
-*Should be clearly stated at the top of all relevant files. Right to copy? Right to modify? Right to distribute? Right to usage in proprietary and commercial software?*
-
+Licensing
+The software will be licensed under the MIT License, and others will be grant right to copy and distribute the code, modify the code and use it in other projects. The license will be clearly stated in the repository and at the top of relevant files.
