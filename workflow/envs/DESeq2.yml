@@ -1,0 +1,7 @@
+name: DESeq2
+channels:
+  - bioconda
+  - conda-forge
+  - defaults
+dependencies:
+  - r-base=4.4.1

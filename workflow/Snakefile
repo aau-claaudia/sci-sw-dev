@@ -1,0 +1,41 @@
+# Main entrypoint of the workflow. 
+# Please follow the best practices: 
+# https://snakemake.readthedocs.io/en/stable/snakefiles/best_practices.html,
+# in particular regarding the standardized folder structure mentioned there. 
+import os
+from snakemake.utils import min_version
+
+min_version("7.18.2")
+
+configfile: "config/config.yaml"
+
+# list all subfolders in input_dir
+sample_dirs = os.listdir(config['input_dir'])
+
+include: "rules/01_concatenate_fastq.smk"
+include: "rules/02_pychopper_first_round.smk"
+include: "rules/03_pychopper_second_round.smk"
+include: "rules/04_merge_cDNA_reads.smk"
+include: "rules/05_polyA_removal.smk"
+include: "rules/06_SSP_removal.smk"
+include: "rules/07_mapping_genome.smk"
+include: "rules/08_remapping_transcriptome.smk"
+include: "rules/gffread.smk"
+include: "rules/09_gene_abundance_estimation.smk"
+include: "rules/10_DESeq2.smk"
+include: "rules/11_geneID_product_match.smk"
+include: "rules/capture_config.smk"
+include: "rules/common.smk"
+include: "rules/statistics.smk"
+include: "rules/merge_read_count.smk"
+
+# Validate the configuration values
+validate_boolean_config(config["include_pychopper"], "include_pychopper")
+
+# Assign the configuration values to variables
+include_pychopper = config["include_pychopper"]
+
+# Function to generate output files for "rule all" are defined in the common.smk file
+rule all:
+  input:
+    prepare_inputs()
