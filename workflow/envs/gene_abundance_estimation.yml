@@ -1,0 +1,5 @@
+name: gene_abundance_estimation
+channels:
+  - bioconda
+dependencies:
+  - oarfish
